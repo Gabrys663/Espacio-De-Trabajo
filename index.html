@@ -31,7 +31,6 @@
             margin-bottom: 25px;
         }
 
-        /* 🟩 PANEL TIPO CANVA */
         .panel {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -56,7 +55,7 @@
         .card:hover {
             background: #252525;
             transform: translateY(-3px);
-            border-color: #48e1c3; /* color resaltado */
+            border-color: #48e1c3;
         }
 
         .card.large {
@@ -71,7 +70,6 @@
             margin-bottom: 6px;
         }
 
-        /* 🔙 Botón de regreso */
         .back {
             background: #333;
             border: none;
@@ -90,7 +88,6 @@
             display: none;
         }
 
-        /* 📝 Caja para letras */
         .lyrics {
             background: #151515;
             padding: 15px;
@@ -109,15 +106,12 @@
         <h1>🌙 Luna Records | Panel Privado</h1>
         <p>Selecciona una categoría para empezar:</p>
 
-        <!-- 🔹 MENÚ PRINCIPAL -->
         <div id="menu" class="panel">
-            <!-- Botón grande -->
             <div class="card large" onclick="showSection('letras')">
                 <div class="icon">🎵</div>
                 Letras
             </div>
 
-            <!-- Botones pequeños -->
             <div class="card" onclick="showSection('prompts')">
                 <div class="icon">🎧</div>
                 Prompts IA
@@ -139,48 +133,40 @@
             </div>
         </div>
 
-        <!-- 🎵 SECCIÓN LETRAS -->
         <div id="letras" class="hidden">
             <button class="back" onclick="backToMenu()">⬅ Volver</button>
             <h2>🎼 Letras</h2>
-            <p>Selecciona una canción:</p>
-
             <button class="back" onclick="showLyrics('conFe')">🌙 Con Fe (Ejemplo)</button>
         </div>
 
-        <!-- LETRA EJEMPLO -->
         <div id="conFe" class="hidden">
             <button class="back" onclick="showSection('letras')">⬅ Regresar a Letras</button>
             <h2>🌙 Con Fe (Ejemplo)</h2>
             <div class="lyrics">
 Con fe empecé este sueño,
 sin nada y con todo en contra...
-(Aquí iría la letra real 👇)
+(Aquí meterías tu letra real)
             </div>
         </div>
 
-        <!-- 🎧 PROMPTS IA -->
         <div id="prompts" class="hidden">
             <button class="back" onclick="backToMenu()">⬅ Volver</button>
             <h2>🎧 Prompts IA</h2>
             <p>Aquí guardarás prompts para Suno, Udio, IA imágenes, etc.</p>
         </div>
 
-        <!-- 🎨 IMAGEN VISUAL -->
         <div id="imagen" class="hidden">
             <button class="back" onclick="backToMenu()">⬅ Volver</button>
             <h2>🎨 Imagen Visual</h2>
             <p>Referencias de portadas, estilos de Gabrys y Luna.</p>
         </div>
 
-        <!-- 🚀 LANZAMIENTOS -->
         <div id="planes" class="hidden">
             <button class="back" onclick="backToMenu()">⬅ Volver</button>
             <h2>🚀 Lanzamientos</h2>
             <p>Planeación de fechas, estrategia, etc.</p>
         </div>
 
-        <!-- 💰 FINANZAS -->
         <div id="finanzas" class="hidden">
             <button class="back" onclick="backToMenu()">⬅ Volver</button>
             <h2>💰 Finanzas</h2>

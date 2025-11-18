@@ -1,2 +1,198 @@
 # Espacio-De-Trabajo
 Panel privado para letras, prompts y gestión del proyecto musical.
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luna Records | Panel Privado</title>
+
+    <style>
+        body {
+            background: #050505;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        h1 {
+            font-size: 26px;
+            margin-bottom: 5px;
+        }
+
+        p {
+            opacity: .75;
+            margin-bottom: 25px;
+        }
+
+        .panel {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-auto-rows: 150px;
+            gap: 16px;
+            padding: 10px;
+        }
+
+        .card {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            cursor: pointer;
+            transition: .2s;
+            font-size: 16px;
+        }
+
+        .card:hover {
+            background: #252525;
+            transform: translateY(-3px);
+            border-color: #48e1c3;
+        }
+
+        .card.large {
+            grid-column: span 2;
+            grid-row: span 2;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .icon {
+            font-size: 32px;
+            margin-bottom: 6px;
+        }
+
+        .back {
+            background: #333;
+            border: none;
+            padding: 8px 14px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            color: white;
+        }
+
+        .back:hover {
+            background: #555;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .lyrics {
+            background: #151515;
+            padding: 15px;
+            border-radius: 12px;
+            margin: auto;
+            max-width: 720px;
+            text-align: left;
+            white-space: pre-wrap;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>🌙 Luna Records | Panel Privado</h1>
+        <p>Selecciona una categoría para empezar:</p>
+
+        <div id="menu" class="panel">
+            <div class="card large" onclick="showSection('letras')">
+                <div class="icon">🎵</div>
+                Letras
+            </div>
+
+            <div class="card" onclick="showSection('prompts')">
+                <div class="icon">🎧</div>
+                Prompts IA
+            </div>
+
+            <div class="card" onclick="showSection('imagen')">
+                <div class="icon">🎨</div>
+                Imagen Visual
+            </div>
+
+            <div class="card" onclick="showSection('planes')">
+                <div class="icon">🚀</div>
+                Lanzamientos
+            </div>
+
+            <div class="card" onclick="showSection('finanzas')">
+                <div class="icon">💰</div>
+                Finanzas
+            </div>
+        </div>
+
+        <div id="letras" class="hidden">
+            <button class="back" onclick="backToMenu()">⬅ Volver</button>
+            <h2>🎼 Letras</h2>
+            <button class="back" onclick="showLyrics('conFe')">🌙 Con Fe (Ejemplo)</button>
+        </div>
+
+        <div id="conFe" class="hidden">
+            <button class="back" onclick="showSection('letras')">⬅ Regresar a Letras</button>
+            <h2>🌙 Con Fe (Ejemplo)</h2>
+            <div class="lyrics">
+Con fe empecé este sueño,
+sin nada y con todo en contra...
+(Aquí meterías tu letra real)
+            </div>
+        </div>
+
+        <div id="prompts" class="hidden">
+            <button class="back" onclick="backToMenu()">⬅ Volver</button>
+            <h2>🎧 Prompts IA</h2>
+            <p>Aquí guardarás prompts para Suno, Udio, IA imágenes, etc.</p>
+        </div>
+
+        <div id="imagen" class="hidden">
+            <button class="back" onclick="backToMenu()">⬅ Volver</button>
+            <h2>🎨 Imagen Visual</h2>
+            <p>Referencias de portadas, estilos de Gabrys y Luna.</p>
+        </div>
+
+        <div id="planes" class="hidden">
+            <button class="back" onclick="backToMenu()">⬅ Volver</button>
+            <h2>🚀 Lanzamientos</h2>
+            <p>Planeación de fechas, estrategia, etc.</p>
+        </div>
+
+        <div id="finanzas" class="hidden">
+            <button class="back" onclick="backToMenu()">⬅ Volver</button>
+            <h2>💰 Finanzas</h2>
+            <p>Pagos, inversiones, metas por reproducción, etc.</p>
+        </div>
+    </div>
+
+    <script>
+        function showSection(id) {
+            document.querySelectorAll('.container > div').forEach(div => div.classList.add('hidden'));
+            document.getElementById(id).classList.remove('hidden');
+        }
+
+        function showLyrics(id) {
+            document.querySelectorAll('.container > div').forEach(div => div.classList.add('hidden'));
+            document.getElementById(id).classList.remove('hidden');
+        }
+
+        function backToMenu() {
+            document.querySelectorAll('.container > div').forEach(div => div.classList.add('hidden'));
+            document.getElementById('menu').classList.remove('hidden');
+        }
+    </script>
+</body>
+
+</html>
